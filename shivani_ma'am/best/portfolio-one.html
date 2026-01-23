@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shivani Kharpuriya | Developer &amp; Designer Portfolio</title>
+    <script src="/_sdk/element_sdk.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        height: 100%;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #ffffff;
+        color: #1a1a1a;
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+        line-height: 1.6;
+      }
+
+      .wrapper {
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 20px 0;
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      nav .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: #41644a;
+        font-family: "Playfair Display", serif;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 15px;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #41644a;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 100px 40px 60px;
+        background: linear-gradient(135deg, #f8faf9 0%, #ffffff 100%);
+      }
+
+      .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+        width: 100%;
+      }
+
+      .hero-content h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 64px;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 24px;
+        color: #1a1a1a;
+      }
+
+      .hero-content .highlight {
+        color: #41644a;
+      }
+
+      .hero-content p {
+        font-size: 20px;
+        color: #666;
+        margin-bottom: 40px;
+        line-height: 1.7;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 20px;
+      }
+
+      .btn-primary {
+        padding: 16px 40px;
+        background: #41644a;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+      }
+
+      .btn-primary:hover {
+        background: #2d4533;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(65, 100, 74, 0.3);
+      }
+
+      .btn-secondary {
+        padding: 16px 40px;
+        background: transparent;
+        color: #41644a;
+        border: 2px solid #41644a;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+      }
+
+      .btn-secondary:hover {
+        background: #41644a;
+        color: white;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 500px;
+        background: linear-gradient(135deg, #41644a, #5a7d63);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .hero-image svg {
+        width: 200px;
+        height: 200px;
+        opacity: 0.2;
+      }
+
+      .hero-image-text {
+        position: absolute;
+        color: white;
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      /* About Section */
+      .about {
+        padding: 100px 40px;
+        background: white;
+      }
+
+      .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 48px;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1a1a1a;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 60px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .about-card {
+        padding: 40px;
+        background: #f8faf9;
+        border-radius: 16px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .about-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-card-icon {
+        width: 60px;
+        height: 60px;
+        background: #41644a;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+
+      .about-card-icon svg {
+        width: 30px;
+        height: 30px;
+        stroke: white;
+      }
+
+      .about-card h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #1a1a1a;
+      }
+
+      .about-card p {
+        color: #666;
+        line-height: 1.7;
+      }
+
+      /* Projects Section */
+      .projects {
+        padding: 100px 40px;
+        background: #f8faf9;
+      }
+
+      .projects-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .project-filters {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin: 50px 0;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 12px 32px;
+        background: white;
+        color: #666;
+        border: 2px solid #e0e0e0;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover {
+        border-color: #41644a;
+        color: #41644a;
+        transform: translateY(-2px);
+      }
+
+      .filter-btn.active {
+        background: #41644a;
+        color: white;
+        border-color: #41644a;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        opacity: 1;
+        transform: scale(1);
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      .project-card.hide {
+        opacity: 0;
+        transform: scale(0.8);
+        height: 0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(65, 100, 74, 0.2);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+      }
+
+      .project-image {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(135deg, #41644a, #5a7d63);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .project-image svg {
+        width: 80px;
+        height: 80px;
+        opacity: 0.3;
+      }
+
+      .project-content {
+        padding: 32px;
+      }
+
+      .project-tags {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        padding: 6px 16px;
+        background: rgba(65, 100, 74, 0.1);
+        color: #41644a;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .project-content h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #1a1a1a;
+      }
+
+      .project-content p {
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 24px;
+      }
+
+      .project-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .action-btn {
+        flex: 1;
+        min-width: 100px;
+        padding: 10px 16px;
+        background: rgba(65, 100, 74, 0.1);
+        color: #41644a;
+        border: 1px solid rgba(65, 100, 74, 0.2);
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .action-btn:hover {
+        background: #41644a;
+        color: white;
+        border-color: #41644a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(65, 100, 74, 0.3);
+      }
+
+      .action-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      /* Skills Section */
+      .skills {
+        padding: 100px 40px;
+        background: white;
+      }
+
+      .skills-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-top: 60px;
+      }
+
+      .skill-card {
+        padding: 32px;
+        background: #f8faf9;
+        border-radius: 16px;
+        text-align: center;
+        transition: transform 0.3s, background 0.3s;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        background: #41644a;
+      }
+
+      .skill-card:hover h3,
+      .skill-card:hover p {
+        color: white;
+      }
+
+      .skill-icon {
+        width: 80px;
+        height: 80px;
+        background: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+
+      .skill-card h3 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #1a1a1a;
+        transition: color 0.3s;
+      }
+
+      .skill-card p {
+        color: #666;
+        font-size: 14px;
+        transition: color 0.3s;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 100px 40px;
+        background: #41644a;
+        color: white;
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .contact .section-title {
+        color: white;
+      }
+
+      .contact .section-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        margin-top: 60px;
+      }
+
+      .contact-item {
+        text-align: center;
+      }
+
+      .contact-item-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+      }
+
+      .contact-item-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: white;
+      }
+
+      .contact-label {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+
+      .contact-value {
+        font-size: 18px;
+        font-weight: 600;
+        color: white;
+      }
+
+      /* Footer */
+      footer {
+        padding: 30px 40px;
+        background: #2d4533;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .hero-content h1 {
+          font-size: 48px;
+        }
+
+        .about-grid,
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          padding: 80px 20px 40px;
+        }
+
+        .hero-content h1 {
+          font-size: 36px;
+        }
+
+        .hero-content p {
+          font-size: 18px;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+        }
+
+        .section-title {
+          font-size: 36px;
+        }
+
+        .about,
+        .projects,
+        .skills,
+        .contact {
+          padding: 60px 20px;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-info {
+          flex-direction: column;
+          gap: 40px;
+        }
+      }
+    </style>
+    <style>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Navigation -->
+      <nav>
+        <div class="nav-container">
+          <div class="logo">Shivani.</div>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-container">
+          <div class="hero-content">
+            <h1 id="hero-title">
+              Hi, I'm <span class="highlight">Shivani Kharpuriya</span>
+            </h1>
+            <p id="hero-subtitle">
+              A passionate developer and designer creating beautiful, functional
+              digital experiences. Combining elite logic with artistic vision.
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn-primary">View My Work</a>
+              <a href="#contact" class="btn-secondary">Get In Touch</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <svg fill="none" stroke="white" viewbox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
+            </svg>
+            <div id="photo-text" class="hero-image-text">Your Photo Here</div>
+          </div>
+        </div>
+      </section>
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div class="about-container">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">
+            A complete package of technical excellence, creative design, and
+            innovative thinking
+          </p>
+          <div class="about-grid">
+            <div class="about-card">
+              <div class="about-card-icon">
+                <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  />
+                </svg>
+              </div>
+              <h3>Problem Solver</h3>
+              <p>
+                Expert in breaking down complex challenges and creating elegant,
+                efficient solutions with clean code.
+              </p>
+            </div>
+            <div class="about-card">
+              <div class="about-card-icon">
+                <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                  />
+                </svg>
+              </div>
+              <h3>Creative Designer</h3>
+              <p>
+                Crafting beautiful user interfaces that are both visually
+                stunning and highly functional.
+              </p>
+            </div>
+            <div class="about-card">
+              <div class="about-card-icon">
+                <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+              </div>
+              <h3>Fast Learner</h3>
+              <p>
+                Always exploring new technologies and staying ahead of industry
+                trends to deliver cutting-edge solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <div class="projects-container">
+          <h2 class="section-title">My Projects</h2>
+          <p class="section-subtitle">
+            A showcase of my recent work and creative solutions
+          </p>
+          <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">
+              All Projects
+            </button>
+            <button class="filter-btn" data-filter="web">Web Dev</button>
+            <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+            <button class="filter-btn" data-filter="design">
+              UI/UX Design
+            </button>
+            <button class="filter-btn" data-filter="python">Python</button>
+          </div>
+          <div class="projects-grid">
+            <div class="project-card" data-category="web">
+              <div class="project-image">
+                <svg fill="none" stroke="white" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                  />
+                </svg>
+              </div>
+              <div class="project-content">
+                <div class="project-tags">
+                  <span class="tag">React</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">MongoDB</span>
+                </div>
+                <h3>E-Commerce Platform</h3>
+                <p>
+                  Full-stack online shopping platform with payment integration,
+                  user authentication, and admin dashboard.
+                </p>
+                <div class="project-actions">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                  <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      />
+                    </svg>
+                    View
+                  </a>
+                  <a
+                    href="https://figma.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M8 2c-1.7 0-3 1.3-3 3s1.3 3 3 3h3V5c0-1.7-1.3-3-3-3zm0 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3v-3H8zm8-10c1.7 0 3 1.3 3 3s-1.3 3-3 3h-3V2h3zm-3 8h3c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3v-3zm0 5v2c0 1.7-1.3 3-3 3s-3-1.3-3-3 1.3-3 3-3h3z"
+                      />
+                    </svg>
+                    Figma
+                  </a>
+                  <a
+                    href="https://docs.example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    Docs
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-category="mobile">
+              <div class="project-image">
+                <svg fill="none" stroke="white" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <div class="project-content">
+                <div class="project-tags">
+                  <span class="tag">Swift</span> <span class="tag">iOS</span>
+                </div>
+                <h3>Fitness Tracker App</h3>
+                <p>
+                  Native iOS application for tracking workouts, calories, and
+                  fitness goals with beautiful UI.
+                </p>
+                <div class="project-actions">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                  <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      />
+                    </svg>
+                    View
+                  </a>
+                  <a
+                    href="https://figma.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M8 2c-1.7 0-3 1.3-3 3s1.3 3 3 3h3V5c0-1.7-1.3-3-3-3zm0 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3v-3H8zm8-10c1.7 0 3 1.3 3 3s-1.3 3-3 3h-3V2h3zm-3 8h3c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3v-3zm0 5v2c0 1.7-1.3 3-3 3s-3-1.3-3-3 1.3-3 3-3h3z"
+                      />
+                    </svg>
+                    Figma
+                  </a>
+                  <a
+                    href="https://docs.example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    Docs
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-category="design">
+              <div class="project-image">
+                <svg fill="none" stroke="white" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                  />
+                </svg>
+              </div>
+              <div class="project-content">
+                <div class="project-tags">
+                  <span class="tag">Figma</span> <span class="tag">UI/UX</span>
+                </div>
+                <h3>Design System</h3>
+                <p>
+                  Comprehensive design system with reusable components, style
+                  guide, and documentation.
+                </p>
+                <div class="project-actions">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                  <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      />
+                    </svg>
+                    View
+                  </a>
+                  <a
+                    href="https://figma.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M8 2c-1.7 0-3 1.3-3 3s1.3 3 3 3h3V5c0-1.7-1.3-3-3-3zm0 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3v-3H8zm8-10c1.7 0 3 1.3 3 3s-1.3 3-3 3h-3V2h3zm-3 8h3c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3v-3zm0 5v2c0 1.7-1.3 3-3 3s-3-1.3-3-3 1.3-3 3-3h3z"
+                      />
+                    </svg>
+                    Figma
+                  </a>
+                  <a
+                    href="https://docs.example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    Docs
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-category="python">
+              <div class="project-image">
+                <svg fill="none" stroke="white" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  />
+                </svg>
+              </div>
+              <div class="project-content">
+                <div class="project-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">Data Science</span>
+                </div>
+                <h3>Analytics Dashboard</h3>
+                <p>
+                  Interactive data visualization dashboard with real-time
+                  analytics and reporting features.
+                </p>
+                <div class="project-actions">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                  <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      />
+                    </svg>
+                    View
+                  </a>
+                  <a
+                    href="https://figma.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M8 2c-1.7 0-3 1.3-3 3s1.3 3 3 3h3V5c0-1.7-1.3-3-3-3zm0 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3v-3H8zm8-10c1.7 0 3 1.3 3 3s-1.3 3-3 3h-3V2h3zm-3 8h3c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3v-3zm0 5v2c0 1.7-1.3 3-3 3s-3-1.3-3-3 1.3-3 3-3h3z"
+                      />
+                    </svg>
+                    Figma
+                  </a>
+                  <a
+                    href="https://docs.example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    Docs
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-category="web">
+              <div class="project-image">
+                <svg fill="none" stroke="white" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                  />
+                </svg>
+              </div>
+              <div class="project-content">
+                <div class="project-tags">
+                  <span class="tag">Vue.js</span>
+                  <span class="tag">Firebase</span>
+                </div>
+                <h3>Real-Time Chat App</h3>
+                <p>
+                  Modern chat application with real-time messaging, file
+                  sharing, and group conversations.
+                </p>
+                <div class="project-actions">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                  <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      />
+                    </svg>
+                    View
+                  </a>
+                  <a
+                    href="https://figma.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M8 2c-1.7 0-3 1.3-3 3s1.3 3 3 3h3V5c0-1.7-1.3-3-3-3zm0 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3v-3H8zm8-10c1.7 0 3 1.3 3 3s-1.3 3-3 3h-3V2h3zm-3 8h3c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3v-3zm0 5v2c0 1.7-1.3 3-3 3s-3-1.3-3-3 1.3-3 3-3h3z"
+                      />
+                    </svg>
+                    Figma
+                  </a>
+                  <a
+                    href="https://docs.example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    Docs
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-category="python">
+              <div class="project-image">
+                <svg fill="none" stroke="white" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <div class="project-content">
+                <div class="project-tags">
+                  <span class="tag">Python</span> <span class="tag">AI/ML</span>
+                </div>
+                <h3>AI Image Classifier</h3>
+                <p>
+                  Machine learning model for image classification using deep
+                  learning and neural networks.
+                </p>
+                <div class="project-actions">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                  <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      />
+                    </svg>
+                    View
+                  </a>
+                  <a
+                    href="https://figma.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="currentColor" viewbox="0 0 24 24">
+                      <path
+                        d="M8 2c-1.7 0-3 1.3-3 3s1.3 3 3 3h3V5c0-1.7-1.3-3-3-3zm0 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3v-3H8zm8-10c1.7 0 3 1.3 3 3s-1.3 3-3 3h-3V2h3zm-3 8h3c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3v-3zm0 5v2c0 1.7-1.3 3-3 3s-3-1.3-3-3 1.3-3 3-3h3z"
+                      />
+                    </svg>
+                    Figma
+                  </a>
+                  <a
+                    href="https://docs.example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="action-btn"
+                  >
+                    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    Docs
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Skills Section -->
+      <section id="skills" class="skills">
+        <div class="skills-container">
+          <h2 class="section-title">My Skills</h2>
+          <p class="section-subtitle">Technologies and tools I work with</p>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <span style="font-size: 32px; font-weight: 700; color: #41644a"
+                  >Py</span
+                >
+              </div>
+              <h3>Python</h3>
+              <p>Backend &amp; AI/ML</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <span style="font-size: 32px; font-weight: 700; color: #41644a"
+                  >JS</span
+                >
+              </div>
+              <h3>JavaScript</h3>
+              <p>Frontend Development</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <span style="font-size: 32px; font-weight: 700; color: #41644a"
+                  >C</span
+                >
+              </div>
+              <h3>C/C++</h3>
+              <p>Systems Programming</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <span style="font-size: 32px; font-weight: 700; color: #41644a"
+                  >Sw</span
+                >
+              </div>
+              <h3>Swift</h3>
+              <p>iOS Development</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <span style="font-size: 32px; font-weight: 700; color: #41644a"
+                  >R</span
+                >
+              </div>
+              <h3>React</h3>
+              <p>Web Applications</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <span style="font-size: 32px; font-weight: 700; color: #41644a"
+                  >N</span
+                >
+              </div>
+              <h3>Node.js</h3>
+              <p>Backend Services</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <span style="font-size: 32px; font-weight: 700; color: #41644a"
+                  >Fi</span
+                >
+              </div>
+              <h3>Figma</h3>
+              <p>UI/UX Design</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <span style="font-size: 32px; font-weight: 700; color: #41644a"
+                  >Git</span
+                >
+              </div>
+              <h3>Git</h3>
+              <p>Version Control</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <div class="contact-container">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">
+            Let's work together on your next project
+          </p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <div class="contact-label">Email</div>
+              <div id="contact-email" class="contact-value">
+                shivani.kharpuriya@example.com
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+              </div>
+              <div class="contact-label">Location</div>
+              <div id="contact-location" class="contact-value">
+                Available Worldwide
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Footer -->
+      <footer>
+        <p>© 2024 Shivani Kharpuriya. All rights reserved.</p>
+      </footer>
+    </div>
+    <script>
+      const defaultConfig = {
+        hero_title: "Hi, I'm Shivani Kharpuriya",
+        hero_subtitle:
+          "A passionate developer and designer creating beautiful, functional digital experiences. Combining elite logic with artistic vision.",
+        photo_text: "Your Photo Here",
+        contact_email: "shivani.kharpuriya@example.com",
+        contact_location: "Available Worldwide",
+      };
+
+      let config = { ...defaultConfig };
+
+      async function onConfigChange(newConfig) {
+        config = { ...config, ...newConfig };
+
+        const heroTitle = document.getElementById("hero-title");
+        if (heroTitle) {
+          heroTitle.innerHTML = config.hero_title || defaultConfig.hero_title;
+        }
+
+        const heroSubtitle = document.getElementById("hero-subtitle");
+        if (heroSubtitle) {
+          heroSubtitle.textContent =
+            config.hero_subtitle || defaultConfig.hero_subtitle;
+        }
+
+        const photoText = document.getElementById("photo-text");
+        if (photoText) {
+          photoText.textContent = config.photo_text || defaultConfig.photo_text;
+        }
+
+        const contactEmail = document.getElementById("contact-email");
+        if (contactEmail) {
+          contactEmail.textContent =
+            config.contact_email || defaultConfig.contact_email;
+        }
+
+        const contactLocation = document.getElementById("contact-location");
+        if (contactLocation) {
+          contactLocation.textContent =
+            config.contact_location || defaultConfig.contact_location;
+        }
+      }
+
+      function mapToCapabilities(config) {
+        return {
+          recolorables: [],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined,
+        };
+      }
+
+      function mapToEditPanelValues(config) {
+        return new Map([
+          ["hero_title", config.hero_title || defaultConfig.hero_title],
+          [
+            "hero_subtitle",
+            config.hero_subtitle || defaultConfig.hero_subtitle,
+          ],
+          ["photo_text", config.photo_text || defaultConfig.photo_text],
+          [
+            "contact_email",
+            config.contact_email || defaultConfig.contact_email,
+          ],
+          [
+            "contact_location",
+            config.contact_location || defaultConfig.contact_location,
+          ],
+        ]);
+      }
+
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues,
+        });
+      }
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Project filtering
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const projectCards = document.querySelectorAll(".project-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const filter = this.getAttribute("data-filter");
+
+          // Update active button
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          this.classList.add("active");
+
+          // Filter projects with animation
+          projectCards.forEach((card, index) => {
+            const category = card.getAttribute("data-category");
+
+            if (filter === "all" || category === filter) {
+              setTimeout(() => {
+                card.classList.remove("hide");
+                card.style.animation = "fadeInUp 0.6s ease forwards";
+              }, index * 100);
+            } else {
+              card.classList.add("hide");
+            }
+          });
+        });
+      });
+
+      // Scroll animations for sections
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all cards
+      document.querySelectorAll(".about-card, .skill-card").forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = "all 0.6s ease";
+        observer.observe(card);
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9c266a63703b3d42',t:'MTc2OTE2MjEyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
