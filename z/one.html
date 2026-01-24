@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shivani Kharpuriya | Full Stack Developer</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* --- CSS VARIABLES & RESET --- */
+      :root {
+        --primary-color: #2ecc71; /* Vibrant Green */
+        --secondary-color: #27ae60; /* Darker Green */
+        --accent-color: #1e824c;
+        --bg-color: #ffffff;
+        --bg-alt: #f4f9f4;
+        --text-dark: #333333;
+        --text-light: #666666;
+        --shadow: 0 10px 30px rgba(46, 204, 113, 0.15);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* --- UTILITIES --- */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: var(--transition);
+        border: 2px solid transparent;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        margin-left: 10px;
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: var(--primary-color);
+        margin: 10px auto 0;
+        border-radius: 2px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      /* --- NAVIGATION --- */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+
+      .logo span {
+        color: var(--primary-color);
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        bottom: -5px;
+        left: 0;
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+
+      /* --- HERO SECTION & ANIMATION --- */
+      #hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Canvas Background for Particle Network */
+      #bg-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      .hero-content {
+        flex: 1;
+        z-index: 1;
+      }
+
+      .hero-greeting {
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .hero-name {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 15px;
+      }
+
+      .hero-role {
+        font-size: 1.5rem;
+        color: var(--text-light);
+        margin-bottom: 30px;
+      }
+
+      .hero-typing {
+        color: var(--secondary-color);
+        font-weight: 600;
+      }
+
+      .hero-visual {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Code Window Animation */
+      .code-window {
+        width: 350px;
+        background: #1e1e1e;
+        border-radius: 10px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .window-header {
+        background: #252526;
+        padding: 10px 15px;
+        display: flex;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .red {
+        background: #ff5f56;
+      }
+      .yellow {
+        background: #ffbd2e;
+      }
+      .green {
+        background: #27c93f;
+      }
+
+      .window-body {
+        padding: 20px;
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+        color: #d4d4d4;
+      }
+
+      .line {
+        display: block;
+        margin-bottom: 5px;
+        opacity: 0;
+        animation: fadeIn 0.1s forwards;
+      }
+      .indent {
+        margin-left: 20px;
+      }
+      .keyword {
+        color: #569cd6;
+      }
+      .string {
+        color: #ce9178;
+      }
+      .function {
+        color: #dcdcaa;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* --- ABOUT SECTION --- */
+      #about {
+        background-color: var(--bg-alt);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .about-img {
+        text-align: center;
+        position: relative;
+      }
+
+      .about-img img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid white;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .about-img:hover img {
+        transform: scale(1.05) rotate(5deg);
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .tag {
+        background: white;
+        color: var(--primary-color);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 500;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--primary-color);
+        transition: var(--transition);
+      }
+
+      .tag:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      /* --- ANIMATION SHOWCASE SECTION --- */
+      #animation-showcase {
+        background-color: var(--bg-color);
+      }
+
+      .showcase-container {
+        background: #f0f0f0;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+        margin-top: 30px;
+      }
+
+      #anim-canvas {
+        background: white;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        cursor: crosshair;
+        margin: 20px auto;
+        display: block;
+      }
+
+      .anim-controls {
+        margin-top: 15px;
+      }
+
+      /* --- PORTFOLIO SECTION --- */
+      #portfolio {
+        background-color: var(--bg-alt);
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(46, 204, 113, 0.2);
+      }
+
+      .project-img {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .project-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .project-card:hover .project-img img {
+        transform: scale(1.1);
+      }
+
+      .project-info {
+        padding: 25px;
+      }
+
+      .project-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--text-dark);
+      }
+
+      .project-desc {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        margin-bottom: 20px;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .project-links a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-size: 1.2rem;
+        transition: var(--transition);
+      }
+
+      .project-links a:hover {
+        color: var(--primary-color);
+      }
+
+      /* --- CONTACT SECTION --- */
+      #contact {
+        background-color: var(--bg-color);
+      }
+
+      .contact-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        border: 1px solid #eee;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--text-dark);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #eee;
+        border-radius: 8px;
+        font-family: inherit;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      textarea.form-control {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background: var(--text-dark);
+        color: white;
+        text-align: center;
+        padding: 40px 0;
+      }
+
+      .social-icons {
+        margin-bottom: 20px;
+      }
+
+      .social-icons a {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0 10px;
+        transition: var(--transition);
+      }
+
+      .social-icons a:hover {
+        color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+
+      /* --- TOAST NOTIFICATION --- */
+      #toast {
+        visibility: hidden;
+        min-width: 250px;
+        background-color: var(--text-dark);
+        color: #fff;
+        text-align: center;
+        border-radius: 8px;
+        padding: 16px;
+        position: fixed;
+        z-index: 2000;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        font-size: 17px;
+        opacity: 0;
+        transition: opacity 0.5s, bottom 0.5s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        border-left: 5px solid var(--primary-color);
+      }
+
+      #toast.show {
+        visibility: visible;
+        opacity: 1;
+        bottom: 50px;
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          right: 0;
+          top: 70px;
+          background: white;
+          height: 100vh;
+          width: 60%;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 50px;
+          transform: translateX(100%);
+          transition: transform 0.3s ease-in;
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+          transform: translateX(0);
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        #hero {
+          flex-direction: column-reverse;
+          justify-content: center;
+          text-align: center;
+          padding-top: 100px;
+          height: auto;
+          min-height: 100vh;
+        }
+
+        .hero-content {
+          margin-top: 40px;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-name {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">Shivani<span>.dev</span></div>
+          <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#animation-showcase">Animation</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="hamburger">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <canvas id="bg-canvas"></canvas>
+      <div
+        class="container"
+        style="display: flex; width: 100%; align-items: center; flex-wrap: wrap"
+      >
+        <div class="hero-content">
+          <p class="hero-greeting">Hello, I am</p>
+          <h1 class="hero-name">Shivani Kharpuriya</h1>
+          <h2 class="hero-role">
+            <span class="hero-typing" id="typing-text"></span>
+          </h2>
+          <p style="margin-bottom: 30px; max-width: 500px; color: #555">
+            World-class Full Stack Developer creating seamless, scalable web
+            applications with clean code and creative animations.
+          </p>
+          <a href="#portfolio" class="btn">View Work</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+        <div class="hero-visual">
+          <!-- Animated Code Window -->
+          <div class="code-window">
+            <div class="window-header">
+              <div class="dot red"></div>
+              <div class="dot yellow"></div>
+              <div class="dot green"></div>
+            </div>
+            <div class="window-body" id="code-body">
+              <!-- JS will populate this -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+          <div class="about-img">
+            <!-- Placeholder using seed -->
+            <img
+              src="https://picsum.photos/seed/shivani/400/400"
+              alt="Shivani Kharpuriya"
+            />
+          </div>
+          <div class="about-info">
+            <h3>I build things for the web.</h3>
+            <p style="margin: 15px 0; color: #555">
+              I am a passionate Full Stack Developer based in India. I enjoy
+              bridging the gap between engineering and design — combining
+              technical knowledge with a keen eye for aesthetics to create
+              beautiful, functional products.
+            </p>
+            <p style="color: #555">
+              With a focus on animation and micro-interactions, I ensure that
+              the user experience is not just functional, but delightful.
+            </p>
+
+            <div class="skill-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">React.js</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">HTML5 & CSS3</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Canvas API</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animation Showcase Section -->
+    <section id="animation-showcase">
+      <div class="container">
+        <h2 class="section-title">Animation Skills</h2>
+        <p
+          style="
+            text-align: center;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+          "
+        >
+          Beyond functionality, I believe the web should be alive. Here is an
+          interactive 2D physics simulation demonstrating my ability to
+          manipulate the Canvas API.
+        </p>
+
+        <div class="showcase-container">
+          <canvas id="anim-canvas" width="800" height="400"></canvas>
+          <div class="anim-controls">
+            <p style="font-size: 0.9rem; color: #666">
+              Move your mouse over the canvas to disturb the particles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="project-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-img">
+              <img
+                src="https://picsum.photos/seed/proj1/400/300"
+                alt="E-Commerce Platform"
+              />
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">GreenShop E-Commerce</h3>
+              <p class="project-desc">
+                A full-stack shopping platform with cart functionality, payment
+                gateway integration, and admin dashboard.
+              </p>
+              <div class="project-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-img">
+              <img
+                src="https://picsum.photos/seed/proj2/400/300"
+                alt="Task Manager"
+              />
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">TaskFlow Manager</h3>
+              <p class="project-desc">
+                Real-time collaborative task management application using
+                WebSockets and React.
+              </p>
+              <div class="project-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-img">
+              <img
+                src="https://picsum.photos/seed/proj3/400/300"
+                alt="Fitness Tracker"
+              />
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">FitTrack Animation</h3>
+              <p class="project-desc">
+                An animated dashboard visualizing workout data with D3.js and
+                custom Canvas animations.
+              </p>
+              <div class="project-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-wrapper">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                class="form-control"
+                placeholder="How can I help you?"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2023 Shivani Kharpuriya. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast">Message sent successfully!</div>
+
+    <script>
+      // --- 1. NAVIGATION & UI ---
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      const links = document.querySelectorAll(".nav-links li");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close mobile menu on link click
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // --- 2. TYPING EFFECT ---
+      const textElement = document.getElementById("typing-text");
+      const phrases = [
+        "Full Stack Developer",
+        "UI/UX Enthusiast",
+        "Creative Coder",
+      ];
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typeSpeed = 100;
+
+      function type() {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+          textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+          charIndex--;
+          typeSpeed = 50;
+        } else {
+          textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+          charIndex++;
+          typeSpeed = 100;
+        }
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+          isDeleting = true;
+          typeSpeed = 2000; // Pause at end
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          typeSpeed = 500; // Pause before new word
+        }
+
+        setTimeout(type, typeSpeed);
+      }
+
+      document.addEventListener("DOMContentLoaded", type);
+
+      // --- 3. CODE WINDOW ANIMATION ---
+      const codeBody = document.getElementById("code-body");
+      const codeLines = [
+        { text: "class Developer extends Human {", class: "keyword" },
+        { text: "constructor() {", class: "function" },
+        { text: "this.name = 'Shivani';", class: "indent" },
+        { text: "this.role = 'Full Stack';", class: "indent" },
+        { text: "this.passion = 'Code';", class: "indent" },
+        { text: "}", class: "function" },
+        { text: "buildWorld() {", class: "function" },
+        { text: "return 'Better Web';", class: "indent" },
+        { text: "}", class: "function" },
+        { text: "}", class: "keyword" },
+      ];
+
+      let lineIndex = 0;
+
+      function addCodeLine() {
+        if (lineIndex >= codeLines.length) {
+          // Reset after delay
+          setTimeout(() => {
+            codeBody.innerHTML = "";
+            lineIndex = 0;
+            addCodeLine();
+          }, 3000);
+          return;
+        }
+
+        const lineData = codeLines[lineIndex];
+        const lineDiv = document.createElement("span");
+        lineDiv.className = "line " + (lineData.class || "");
+        lineDiv.style.animationDelay = `${lineIndex * 0.1}s`;
+
+        // Syntax highlighting inner HTML
+        let content = lineData.text
+          .replace(/'(.*?)'/g, "<span class='string'>$&</span>") // Highlight strings
+          .replace(
+            /(Developer|Human)/g,
+            "<span style='color:#4ec9b0'>$&</span>"
+          ); // Highlight types
+
+        lineDiv.innerHTML = content;
+        codeBody.appendChild(lineDiv);
+        lineIndex++;
+
+        setTimeout(addCodeLine, 200);
+      }
+
+      setTimeout(addCodeLine, 1000);
+
+      // --- 4. BACKGROUND CANVAS ANIMATION (Connecting Dots) ---
+      const bgCanvas = document.getElementById("bg-canvas");
+      const bgCtx = bgCanvas.getContext("2d");
+
+      let width, height;
+      let particles = [];
+
+      function resizeBg() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        bgCanvas.width = width;
+        bgCanvas.height = height;
+        createBgParticles();
+      }
+
+      function createBgParticles() {
+        particles = [];
+        const count = Math.floor((width * height) / 15000); // Density
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 1,
+            vy: (Math.random() - 0.5) * 1,
+            size: Math.random() * 2 + 1,
+          });
+        }
+      }
+
+      function drawBg() {
+        bgCtx.clearRect(0, 0, width, height);
+        bgCtx.fillStyle = "#2ecc71";
+        bgCtx.strokeStyle = "rgba(46, 204, 113, 0.15)";
+
+        for (let i = 0; i < particles.length; i++) {
+          let p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Bounce edges
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          bgCtx.beginPath();
+          bgCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          bgCtx.fill();
+
+          // Connect
+          for (let j = i + 1; j < particles.length; j++) {
+            let p2 = particles[j];
+            let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+            if (dist < 120) {
+              bgCtx.beginPath();
+              bgCtx.lineWidth = 1 - dist / 120;
+              bgCtx.moveTo(p.x, p.y);
+              bgCtx.lineTo(p2.x, p2.y);
+              bgCtx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(drawBg);
+      }
+
+      window.addEventListener("resize", resizeBg);
+      resizeBg();
+      drawBg();
+
+      // --- 5. SHOWCASE CANVAS ANIMATION (Interactive Grid) ---
+      const sCanvas = document.getElementById("anim-canvas");
+      const sCtx = sCanvas.getContext("2d");
+
+      // Adjust canvas resolution for high DPI
+      const dpr = window.devicePixelRatio || 1;
+      const rect = sCanvas.getBoundingClientRect();
+      sCanvas.width = rect.width * dpr;
+      sCanvas.height = rect.height * dpr;
+      sCtx.scale(dpr, dpr);
+
+      const sWidth = rect.width;
+      const sHeight = rect.height;
+
+      let mouse = { x: null, y: null };
+
+      sCanvas.addEventListener("mousemove", (e) => {
+        const r = sCanvas.getBoundingClientRect();
+        mouse.x = e.clientX - r.left;
+        mouse.y = e.clientY - r.top;
+      });
+
+      sCanvas.addEventListener("mouseleave", () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      const boxSize = 20;
+      const cols = Math.floor(sWidth / boxSize);
+      const rows = Math.floor(sHeight / boxSize);
+      const boxes = [];
+
+      class Box {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+          this.baseColor = "#f0f0f0";
+          this.activeColor = "#2ecc71";
+          this.color = this.baseColor;
+        }
+
+        update() {
+          if (mouse.x) {
+            const dx = mouse.x - (this.x + boxSize / 2);
+            const dy = mouse.y - (this.y + boxSize / 2);
+            const dist = Math.hypot(dx, dy);
+
+            if (dist < 80) {
+              this.color = this.activeColor;
+              // Simple scale effect via size
+            } else {
+              this.color = "#e0e0e0"; // Slight trail
+            }
+          } else {
+            this.color = this.baseColor;
+          }
+        }
+
+        draw() {
+          sCtx.fillStyle = this.color;
+          sCtx.fillRect(this.x, this.y, boxSize - 2, boxSize - 2);
+        }
+      }
+
+      for (let y = 0; y < sHeight; y += boxSize) {
+        for (let x = 0; x < sWidth; x += boxSize) {
+          boxes.push(new Box(x, y));
+        }
+      }
+
+      function animateShowcase() {
+        sCtx.clearRect(0, 0, sWidth, sHeight);
+        boxes.forEach((box) => {
+          box.update();
+          box.draw();
+        });
+        requestAnimationFrame(animateShowcase);
+      }
+
+      animateShowcase();
+
+      // --- 6. FORM HANDLING (No Alerts) ---
+      const contactForm = document.getElementById("contactForm");
+      const toast = document.getElementById("toast");
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.className = "show";
+        setTimeout(function () {
+          toast.className = toast.className.replace("show", "");
+        }, 3000);
+      }
+
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // Simulate form submission
+        const btn = contactForm.querySelector("button");
+        const originalText = btn.textContent;
+
+        btn.textContent = "Sending...";
+        btn.disabled = true;
+
+        setTimeout(() => {
+          showToast("Thank you, Shivani will contact you soon!");
+          contactForm.reset();
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>
