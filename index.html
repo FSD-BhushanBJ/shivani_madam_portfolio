@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shivani Kharpuriya | Full Stack Developer</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* --- CSS VARIABLES --- */
+      :root {
+        /* Updated Color Scheme */
+        --primary: #3bc1a8; /* The requested Teal color */
+        --primary-dark: #2ea38c; /* A slightly darker shade for hover states */
+        --bg: #ffffff; /* White */
+        --bg-alt: #f0f8f6; /* Very light teal/white to match new theme */
+        --text: #333333;
+        --text-light: #666666;
+        /* Shadow using RGB values of #3BC1A8 (R=59, G=193, B=168) */
+        --shadow: 0 10px 30px rgba(59, 193, 168, 0.15);
+        --radius: 12px;
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      /* --- RESET & BASIC STYLE --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      /* --- UTILITIES --- */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        position: relative;
+      }
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin: 10px auto 0;
+        border-radius: 2px;
+      }
+      section {
+        padding: 100px 0;
+      }
+
+      /* Scroll Reveal Animation Classes */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- BUTTONS --- */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        cursor: pointer;
+        border: none;
+        font-size: 0.95rem;
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 4px 15px rgba(59, 193, 168, 0.4);
+      }
+      .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        background: transparent;
+      }
+      .btn-outline:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* --- HEADER --- */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      }
+      nav {
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .logo span {
+        color: var(--primary);
+      }
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      /* --- HERO SECTION --- */
+      #hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      #hero-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      .hero-content {
+        flex: 1;
+        z-index: 2;
+      }
+      .hero-subtitle {
+        color: var(--primary);
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        display: block;
+      }
+      .hero-title {
+        font-size: 4rem;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+      .hero-desc {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        margin-bottom: 30px;
+        max-width: 500px;
+      }
+
+      .hero-visual {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+      }
+
+      /* Code Animation Window */
+      .code-window {
+        width: 380px;
+        background: #1e1e1e;
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .win-header {
+        background: #2d2d2d;
+        padding: 12px;
+        display: flex;
+        gap: 6px;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .red {
+        background: #ff5f56;
+      }
+      .yellow {
+        background: #ffbd2e;
+      }
+      .green {
+        background: #27c93f; /* Keeping window dots standard */
+      }
+
+      .win-body {
+        padding: 20px;
+        font-family: "Consolas", monospace;
+        font-size: 14px;
+        color: #d4d4d4;
+      }
+      .code-line {
+        display: block;
+        opacity: 0;
+        animation: fadeInLine 0.1s forwards;
+      }
+      @keyframes fadeInLine {
+        to {
+          opacity: 1;
+        }
+      }
+      .c-keyword {
+        color: #569cd6;
+      }
+      .c-str {
+        color: #ce9178;
+      }
+      .c-func {
+        color: #dcdcaa;
+      }
+
+      /* --- PORTFOLIO SECTION --- */
+      #portfolio {
+        background-color: var(--bg-alt);
+      }
+
+      .portfolio-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+      }
+
+      .tab-btn {
+        padding: 10px 30px;
+        border-radius: 30px;
+        background: white;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        font-weight: 600;
+        font-family: inherit;
+        color: var(--text-light);
+        transition: var(--transition);
+      }
+
+      .tab-btn:hover,
+      .tab-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: 0 5px 15px rgba(59, 193, 168, 0.4);
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        display: block;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(59, 193, 168, 0.2);
+      }
+
+      .card-img {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+      .card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .project-card:hover .card-img img {
+        transform: scale(1.1);
+      }
+
+      .card-body {
+        padding: 25px;
+      }
+      .card-category {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: var(--primary);
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+        display: block;
+      }
+      .card-title {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        color: var(--text);
+      }
+      .card-desc {
+        font-size: 0.95rem;
+        color: var(--text-light);
+        margin-bottom: 25px;
+      }
+
+      .card-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .c-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: var(--transition);
+        border: 1px solid #eee;
+      }
+
+      .c-btn i {
+        font-size: 1rem;
+      }
+      .c-btn:hover {
+        background: var(--bg-alt);
+      }
+      .c-btn.primary {
+        background: var(--primary);
+        color: white;
+        border: none;
+      }
+      .c-btn.primary:hover {
+        background: var(--primary-dark);
+      }
+      .c-btn.dark {
+        color: #333;
+        background: #f4f4f4;
+      }
+      .c-btn.dark:hover {
+        background: #e0e0e0;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      /* --- CONTACT SECTION (NO FORM) --- */
+      .contact-info-card {
+        max-width: 700px;
+        margin: 0 auto;
+        background: white;
+        padding: 50px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: var(--text-light);
+      }
+
+      .contact-item i {
+        color: var(--primary);
+        font-size: 1.5rem;
+      }
+
+      .social-links {
+        margin-top: 30px;
+      }
+      .social-icon {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--bg-alt);
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .social-icon:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background: #222;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+      }
+      .footer-links a {
+        color: white;
+        margin: 0 10px;
+        font-size: 1.2rem;
+        transition: var(--transition);
+      }
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+        #hero {
+          flex-direction: column-reverse;
+          height: auto;
+          padding-top: 120px;
+          padding-bottom: 50px;
+        }
+        .hero-content {
+          text-align: center;
+          margin-top: 30px;
+        }
+        .code-window {
+          width: 300px;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">Shivani<span>.dev</span></div>
+          <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+      <canvas id="hero-canvas"></canvas>
+      <div
+        class="container"
+        style="display: flex; width: 100%; align-items: center; flex-wrap: wrap"
+      >
+        <div class="hero-content reveal">
+          <span class="hero-subtitle">Hello, I am</span>
+          <h1 class="hero-title">Shivani Kharpuriya</h1>
+          <p class="hero-desc">
+            A Full Stack Developer creating responsive, high-performance
+            websites with clean code and modern design.
+          </p>
+          <a href="#portfolio" class="btn btn-primary"
+            >View My Work <i class="fas fa-arrow-right"></i
+          ></a>
+          <a href="#contact" class="btn btn-outline" style="margin-left: 10px"
+            >Hire Me</a
+          >
+        </div>
+        <div class="hero-visual reveal">
+          <div class="code-window">
+            <div class="win-header">
+              <div class="dot red"></div>
+              <div class="dot yellow"></div>
+              <div class="dot green"></div>
+            </div>
+            <div class="win-body" id="code-display">
+              <!-- JS fills this -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <div class="container reveal">
+        <h2 class="section-title">About Me</h2>
+        <div
+          style="
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <img
+            src="./shared-image.jpeg"
+            alt="Shivani Kharpuriya"
+            style="
+              width: 280px;
+              height: 280px;
+              border-radius: 12%;
+              border: 5px solid  rgba(59, 193, 168, 0.4);
+              object-fit: cover;
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            "
+          />
+
+          <div style="max-width: 600px">
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 20px">
+              I specialize in building full-stack applications that are visually
+              appealing and highly functional. With a strong foundation in
+              <strong>HTML, CSS, and JavaScript</strong>, I turn complex
+              problems into simple, beautiful, and intuitive designs.
+            </p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap">
+              <span
+                style="
+                  background: #e0f7f4;
+                  color: var(--primary);
+                  padding: 8px 16px;
+                  border-radius: 20px;
+                  font-weight: 600;
+                "
+                >Front-end Dev</span
+              >
+              <span
+                style="
+                  background: #e0f7f4;
+                  color: var(--primary);
+                  padding: 8px 16px;
+                  border-radius: 20px;
+                  font-weight: 600;
+                "
+                >UI/UX Design</span
+              >
+              <span
+                style="
+                  background: #e0f7f4;
+                  color: var(--primary);
+                  padding: 8px 16px;
+                  border-radius: 20px;
+                  font-weight: 600;
+                "
+                >Responsive Layouts</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio">
+      <div class="container reveal">
+        <h2 class="section-title">My Projects</h2>
+
+        <!-- Tab Buttons -->
+        <div class="portfolio-tabs">
+          <button class="tab-btn active" data-filter="all">All</button>
+          <button class="tab-btn" data-filter="html">HTML</button>
+          <button class="tab-btn" data-filter="css">CSS</button>
+          <button class="tab-btn" data-filter="javascript">JavaScript</button>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="project-grid">
+          <!-- Project 1: HTML -->
+          <div class="project-card" data-category="html">
+            <div class="card-img">
+              <img
+                src="https://picsum.photos/seed/html1/400/300"
+                alt="Project"
+              />
+            </div>
+            <div class="card-body">
+              <span class="card-category">HTML Structure</span>
+              <h3 class="card-title">Corporate Landing Page</h3>
+              <p class="card-desc">
+                Semantic HTML5 layout for a corporate business focusing on
+                accessibility and SEO structure.
+              </p>
+              <div class="card-actions">
+                <a href="#" class="c-btn primary"
+                  ><i class="fas fa-eye"></i> View</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-figma"></i> Figma</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fas fa-file-alt"></i> Doc</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: CSS -->
+          <div class="project-card" data-category="css">
+            <div class="card-img">
+              <img
+                src="https://picsum.photos/seed/css1/400/300"
+                alt="Project"
+              />
+            </div>
+            <div class="card-body">
+              <span class="card-category">CSS Animation</span>
+              <h3 class="card-title">Animated Dashboard UI</h3>
+              <p class="card-desc">
+                Advanced CSS Grid/Flexbox layout with hover effects,
+                transitions, and responsive media queries.
+              </p>
+              <div class="card-actions">
+                <a href="#" class="c-btn primary"
+                  ><i class="fas fa-eye"></i> View</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-figma"></i> Figma</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fas fa-file-alt"></i> Doc</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: JavaScript -->
+          <div class="project-card" data-category="javascript">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/js1/400/300" alt="Project" />
+            </div>
+            <div class="card-body">
+              <span class="card-category">JavaScript Logic</span>
+              <h3 class="card-title">E-Commerce Cart</h3>
+              <p class="card-desc">
+                Dynamic shopping cart using Vanilla JavaScript to handle state,
+                calculations, and local storage.
+              </p>
+              <div class="card-actions">
+                <a href="#" class="c-btn primary"
+                  ><i class="fas fa-eye"></i> View</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-figma"></i> Figma</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fas fa-file-alt"></i> Doc</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: HTML/CSS -->
+          <div class="project-card" data-category="html">
+            <div class="card-img">
+              <img
+                src="https://picsum.photos/seed/html2/400/300"
+                alt="Project"
+              />
+            </div>
+            <div class="card-body">
+              <span class="card-category">HTML5 Forms</span>
+              <h3 class="card-title">Multi-step Form</h3>
+              <p class="card-desc">
+                A complex multi-step registration form with HTML validation
+                attributes and accessibility features.
+              </p>
+              <div class="card-actions">
+                <a href="#" class="c-btn primary"
+                  ><i class="fas fa-eye"></i> View</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-figma"></i> Figma</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fas fa-file-alt"></i> Doc</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: CSS -->
+          <div class="project-card" data-category="css">
+            <div class="card-img">
+              <img
+                src="https://picsum.photos/seed/css2/400/300"
+                alt="Project"
+              />
+            </div>
+            <div class="card-body">
+              <span class="card-category">CSS Flexbox</span>
+              <h3 class="card-title">Photo Gallery</h3>
+              <p class="card-desc">
+                Responsive image gallery using CSS Flexbox and Grid, featuring a
+                lightbox overlay effect.
+              </p>
+              <div class="card-actions">
+                <a href="#" class="c-btn primary"
+                  ><i class="fas fa-eye"></i> View</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-figma"></i> Figma</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fas fa-file-alt"></i> Doc</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: JavaScript -->
+          <div class="project-card" data-category="javascript">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/js2/400/300" alt="Project" />
+            </div>
+            <div class="card-body">
+              <span class="card-category">JavaScript API</span>
+              <h3 class="card-title">Weather App</h3>
+              <p class="card-desc">
+                Fetches real-time weather data from a public API using
+                Async/Await and displays it dynamically.
+              </p>
+              <div class="card-actions">
+                <a href="#" class="c-btn primary"
+                  ><i class="fas fa-eye"></i> View</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fab fa-figma"></i> Figma</a
+                >
+                <a href="#" class="c-btn dark"
+                  ><i class="fas fa-file-alt"></i> Doc</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION (Updated - No Form) -->
+    <section id="contact">
+      <div class="container reveal">
+        <h2 class="section-title">Get In Touch</h2>
+
+        <div class="contact-info-card">
+          <h3 style="margin-bottom: 20px">Let's work together</h3>
+          <p style="color: #666; margin-bottom: 30px">
+            I'm currently available for freelance work and open to new
+            opportunities. If you have a project in mind, feel free to reach
+            out!
+          </p>
+
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>contact@shivanikharpuriya.com</span>
+          </div>
+
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Mumbai, India</span>
+          </div>
+
+          <div style="margin-top: 40px">
+            <a
+              href="mailto:contact@shivanikharpuriya.com"
+              class="btn btn-primary"
+            >
+              <i class="fas fa-paper-plane"></i> Send Email
+            </a>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-icon"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-links" style="margin-bottom: 20px">
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2023 Shivani Kharpuriya. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // --- 1. SCROLL REVEAL ANIMATION ---
+      window.addEventListener("scroll", reveal);
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowheight = window.innerHeight;
+          var revealtop = reveals[i].getBoundingClientRect().top;
+          var revealpoint = 100;
+
+          if (revealtop < windowheight - revealpoint) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+      reveal();
+
+      // --- 2. PROJECT TABS FILTERING ---
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      const projectCards = document.querySelectorAll(".project-card");
+
+      tabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          tabBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filterValue = btn.getAttribute("data-filter");
+
+          projectCards.forEach((card) => {
+            if (
+              filterValue === "all" ||
+              card.getAttribute("data-category") === filterValue
+            ) {
+              card.classList.remove("hide");
+              card.style.opacity = "0";
+              setTimeout(() => (card.style.opacity = "1"), 50);
+            } else {
+              card.classList.add("hide");
+            }
+          });
+        });
+      });
+
+      // --- 3. HERO BACKGROUND PARTICLE ANIMATION (UPDATED COLOR) ---
+      const canvas = document.getElementById("hero-canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let particlesArray;
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 3 + 1;
+          this.speedX = Math.random() * 2 - 1;
+          this.speedY = Math.random() * 2 - 1;
+          this.color = "#3BC1A8"; // Updated color
+        }
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+          if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+        }
+        draw() {
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function initParticles() {
+        particlesArray = [];
+        let numberOfParticles = (canvas.width * canvas.height) / 15000;
+        for (let i = 0; i < numberOfParticles; i++) {
+          particlesArray.push(new Particle());
+        }
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particlesArray.length; i++) {
+          particlesArray[i].update();
+          particlesArray[i].draw();
+          for (let j = i; j < particlesArray.length; j++) {
+            const dx = particlesArray[i].x - particlesArray[j].x;
+            const dy = particlesArray[i].y - particlesArray[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 100) {
+              ctx.beginPath();
+              // Updated RGB for stroke: #3BC1A8 -> rgb(59, 193, 168)
+              ctx.strokeStyle = `rgba(59, 193, 168, ${1 - distance / 100})`;
+              ctx.lineWidth = 1;
+              ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+              ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animateParticles);
+      }
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        initParticles();
+      });
+
+      initParticles();
+      animateParticles();
+
+      // --- 4. CODE WINDOW TYPEWRITER ---
+      const codeDisplay = document.getElementById("code-display");
+      const codeLines = [
+        "<span class='c-keyword'>const</span> shivani = {",
+        "&nbsp;&nbsp;role: <span class='c-str'>'Full Stack Dev'</span>,",
+        "&nbsp;&nbsp;skills: [<span class='c-str'>'HTML'</span>, <span class='c-str'>'CSS'</span>, <span class='c-str'>'JS'</span>],",
+        "&nbsp;&nbsp;passion: <span class='c-keyword'>true</span>",
+        "};",
+        "",
+        "<span class='c-keyword'>function</span> <span class='c-func'>buildWeb</span>() {",
+        "&nbsp;&nbsp;<span class='c-keyword'>return</span> <span class='c-str'>'Amazing!'</span>;",
+        "}",
+      ];
+
+      let lineIndex = 0;
+      function typeCode() {
+        if (lineIndex < codeLines.length) {
+          const div = document.createElement("div");
+          div.className = "code-line";
+          div.innerHTML = codeLines[lineIndex];
+          codeDisplay.appendChild(div);
+          lineIndex++;
+          setTimeout(typeCode, 300);
+        } else {
+          setTimeout(() => {
+            codeDisplay.innerHTML = "";
+            lineIndex = 0;
+            typeCode();
+          }, 5000);
+        }
+      }
+      typeCode();
+    </script>
+  </body>
+</html>
