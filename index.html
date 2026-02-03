@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Shivani Kharpuriya – Full Stack Developer skilled in HTML, CSS, JavaScript, APIs, and databases."
+    />
+    <meta
+      name="keywords"
+      content="Full Stack Developer, HTML, CSS, JavaScript, Portfolio"
+    />
+    <meta name="author" content="Shivani Kharpuriya" />
     <title>Shivani Kharpuriya | Full Stack Developer</title>
     <!-- Google Fonts -->
     <link
@@ -29,6 +38,16 @@
         --shadow: 0 10px 30px rgba(59, 193, 168, 0.15);
         --radius: 12px;
         --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+      /* --- DARK MODE VARIABLES --- */
+      body.dark {
+        --bg: #0f172a;
+        --bg-alt: #020617;
+        --text: #e5e7eb;
+        --text-light: #94a3b8;
+        --primary: #3bc1a8;
+        --primary-dark: #2ea38c;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       }
 
       /* --- RESET & BASIC STYLE --- */
@@ -208,7 +227,7 @@
 
       /* Code Animation Window */
       .code-window {
-        width: 380px;
+        width: 550px;
         background: #1e1e1e;
         border-radius: 12px;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
@@ -499,6 +518,38 @@
           display: none;
         }
       }
+      .theme-toggle {
+        background: var(--bg-alt);
+        border: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: var(--primary);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+
+      .theme-toggle:hover {
+        background: var(--primary);
+        color: white;
+      }
+      body.dark header {
+        background: rgba(15, 23, 42, 0.9);
+      }
+
+      body.dark .project-card,
+      body.dark .contact-info-card {
+        background: #020617;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      body.dark footer {
+        background: #020617;
+      }
     </style>
   </head>
   <body>
@@ -513,6 +564,9 @@
             <li><a href="#portfolio">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
         </nav>
       </div>
     </header>
@@ -528,9 +582,12 @@
           <span class="hero-subtitle">Hello, I am</span>
           <h1 class="hero-title">Shivani Kharpuriya</h1>
           <p class="hero-desc">
-            A Full Stack Developer creating responsive, high-performance
-            websites with clean code and modern design.
+            A creative Full Stack Developer who brings ideas to life through
+            responsive, high-performance web applications—blending elegant
+            front-end design, powerful backend logic, and smart database
+            solutions to craft seamless digital experiences.
           </p>
+
           <a href="#portfolio" class="btn btn-primary"
             >View My Work <i class="fas fa-arrow-right"></i
           ></a>
@@ -567,25 +624,31 @@
           "
         >
           <img
-            src="./shared-image.jpeg"
+            src="./shivani-ma'am.jpeg"
             alt="Shivani Kharpuriya"
             style="
-              width: 280px;
-              height: 280px;
+              max-width: 100%;
+              height: 450px;
               border-radius: 12%;
-              border: 5px solid  rgba(59, 193, 168, 0.4);
-              object-fit: cover;
+              border: 5px solid rgba(59, 193, 168, 0.4);
+              object-fit: contain;
               box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
             "
           />
 
           <div style="max-width: 600px">
-            <p style="font-size: 1.1rem; color: #555; margin-bottom: 20px">
-              I specialize in building full-stack applications that are visually
-              appealing and highly functional. With a strong foundation in
-              <strong>HTML, CSS, and JavaScript</strong>, I turn complex
-              problems into simple, beautiful, and intuitive designs.
+            <p>
+              She specializes in building scalable full-stack applications that
+              are visually appealing and highly functional. With a strong
+              foundation in
+              <strong
+                >HTML, CSS, JavaScript, backend development, APIs, and
+                databases</strong
+              >, she creates intuitive user interfaces and implements secure,
+              efficient server-side logic—turning complex problems into simple,
+              elegant, and reliable solutions.
             </p>
+            <br />
             <div style="display: flex; gap: 10px; flex-wrap: wrap">
               <span
                 style="
@@ -594,9 +657,14 @@
                   padding: 8px 16px;
                   border-radius: 20px;
                   font-weight: 600;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
                 "
+                onmouseover="this.style.background='#c6f1ec'; this.style.transform='translateY(-4px)'"
+                onmouseout="this.style.background='#e0f7f4'; this.style.transform='translateY(0)'"
                 >Front-end Dev</span
               >
+
               <span
                 style="
                   background: #e0f7f4;
@@ -604,9 +672,14 @@
                   padding: 8px 16px;
                   border-radius: 20px;
                   font-weight: 600;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
                 "
+                onmouseover="this.style.background='#c6f1ec'; this.style.transform='translateY(-4px)'"
+                onmouseout="this.style.background='#e0f7f4'; this.style.transform='translateY(0)'"
                 >UI/UX Design</span
               >
+
               <span
                 style="
                   background: #e0f7f4;
@@ -614,8 +687,57 @@
                   padding: 8px 16px;
                   border-radius: 20px;
                   font-weight: 600;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
                 "
+                onmouseover="this.style.background='#c6f1ec'; this.style.transform='translateY(-4px)'"
+                onmouseout="this.style.background='#e0f7f4'; this.style.transform='translateY(0)'"
                 >Responsive Layouts</span
+              >
+
+              <span
+                style="
+                  background: #e0f7f4;
+                  color: var(--primary);
+                  padding: 8px 16px;
+                  border-radius: 20px;
+                  font-weight: 600;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                "
+                onmouseover="this.style.background='#c6f1ec'; this.style.transform='translateY(-4px)'"
+                onmouseout="this.style.background='#e0f7f4'; this.style.transform='translateY(0)'"
+                >Back-end Dev</span
+              >
+
+              <span
+                style="
+                  background: #e0f7f4;
+                  color: var(--primary);
+                  padding: 8px 16px;
+                  border-radius: 20px;
+                  font-weight: 600;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                "
+                onmouseover="this.style.background='#c6f1ec'; this.style.transform='translateY(-4px)'"
+                onmouseout="this.style.background='#e0f7f4'; this.style.transform='translateY(0)'"
+                >API Development</span
+              >
+
+              <span
+                style="
+                  background: #e0f7f4;
+                  color: var(--primary);
+                  padding: 8px 16px;
+                  border-radius: 20px;
+                  font-weight: 600;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                "
+                onmouseover="this.style.background='#c6f1ec'; this.style.transform='translateY(-4px)'"
+                onmouseout="this.style.background='#e0f7f4'; this.style.transform='translateY(0)'"
+                >Database Management</span
               >
             </div>
           </div>
@@ -631,9 +753,16 @@
         <!-- Tab Buttons -->
         <div class="portfolio-tabs">
           <button class="tab-btn active" data-filter="all">All</button>
+
+          <!-- Web -->
           <button class="tab-btn" data-filter="html">HTML</button>
           <button class="tab-btn" data-filter="css">CSS</button>
           <button class="tab-btn" data-filter="javascript">JavaScript</button>
+
+          <!-- Programming Languages -->
+          <button class="tab-btn" data-filter="c">C</button>
+          <button class="tab-btn" data-filter="python">Python</button>
+          <button class="tab-btn" data-filter="swift">Swift</button>
         </div>
 
         <!-- Project Grid -->
@@ -842,12 +971,12 @@
 
           <div class="contact-item">
             <i class="fas fa-envelope"></i>
-            <span>shivanikharpuriya123@.com</span>
+            <span>contact@shivanikharpuriya.com</span>
           </div>
 
           <div class="contact-item">
             <i class="fas fa-map-marker-alt"></i>
-            <span>Republic of Khangao , India</span>
+            <span>Mumbai, India</span>
           </div>
 
           <div style="margin-top: 40px">
@@ -880,7 +1009,7 @@
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
-        <p>&copy; 2023 Shivani Kharpuriya. All Rights Reserved.</p>
+        <p>&copy; 2025 Shivani Kharpuriya. All Rights Reserved.</p>
       </div>
     </footer>
 
@@ -1002,13 +1131,20 @@
       const codeDisplay = document.getElementById("code-display");
       const codeLines = [
         "<span class='c-keyword'>const</span> shivani = {",
-        "&nbsp;&nbsp;role: <span class='c-str'>'Full Stack Dev'</span>,",
-        "&nbsp;&nbsp;skills: [<span class='c-str'>'HTML'</span>, <span class='c-str'>'CSS'</span>, <span class='c-str'>'JS'</span>],",
+        "&nbsp;&nbsp;name: <span class='c-str'>'Shivani'</span>,",
+        "&nbsp;&nbsp;role: <span class='c-str'>'Full Stack Developer'</span>,",
+        "&nbsp;&nbsp;frontend: [<span class='c-str'>'HTML'</span>, <span class='c-str'>'CSS'</span>, <span class='c-str'>'JavaScript'</span>],",
+        "&nbsp;&nbsp;backend: [<span class='c-str'>'Node.js'</span>, <span class='c-str'>'Express'</span>, <span class='c-str'>'REST APIs'</span>],",
+        "&nbsp;&nbsp;database: [<span class='c-str'>'MongoDB'</span>, <span class='c-str'>'SQL'</span>, <span class='c-str'>'PgAdmin4'</span>],",
+        "&nbsp;&nbsp;auth: [<span class='c-str'>'JWT'</span>, <span class='c-str'>'Session Auth'</span>],",
+        "&nbsp;&nbsp;tools: [<span class='c-str'>'Git'</span>, <span class='c-str'>'GitHub'</span>, <span class='c-str'>'Postman'</span>],",
+        "&nbsp;&nbsp;deployment: [<span class='c-str'>'Docker'</span>, <span class='c-str'>'Cloud'</span>],",
+        "&nbsp;&nbsp;mindset: <span class='c-str'>'Problem Solver'</span>,",
         "&nbsp;&nbsp;passion: <span class='c-keyword'>true</span>",
         "};",
         "",
-        "<span class='c-keyword'>function</span> <span class='c-func'>buildWeb</span>() {",
-        "&nbsp;&nbsp;<span class='c-keyword'>return</span> <span class='c-str'>'Amazing!'</span>;",
+        "<span class='c-keyword'>function</span> <span class='c-func'>buildProduct</span>() {",
+        "&nbsp;&nbsp;<span class='c-keyword'>return</span> <span class='c-str'>'Scalable • Secure • User-Friendly'</span>;",
         "}",
       ];
 
@@ -1030,6 +1166,28 @@
         }
       }
       typeCode();
+
+      // --- 5. DARK MODE TOGGLE ---
+      const toggleBtn = document.querySelector(".theme-toggle");
+      const icon = toggleBtn.querySelector("i");
+
+      // Load saved theme
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+        icon.classList.replace("fa-moon", "fa-sun");
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+          icon.classList.replace("fa-moon", "fa-sun");
+          localStorage.setItem("theme", "dark");
+        } else {
+          icon.classList.replace("fa-sun", "fa-moon");
+          localStorage.setItem("theme", "light");
+        }
+      });
     </script>
   </body>
 </html>
